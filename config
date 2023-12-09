@@ -42,8 +42,8 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # Workspaces
-set $bg #212739
-set $fg #f0f0f0
+set $bg #182b32
+set $fg #e9e9e0
 
 set $ws1 " 1:"
 set $ws2 " 2:" 
@@ -96,21 +96,21 @@ for_window [class="Firefox"] border none
 
 # Colors
 client.focused           #212739 #171421 #f0f0f0 #285577
-client.focused_inactive  #212739 #252522 #f0f0f0 #0b6e48
-client.unfocused         #212739 #252525 #f0f0f0 #222222
+client.focused_inactive  #182b32 #252522 #f0f0f0 #0b6e48
+client.unfocused         #182b32 #252525 #f0f0f0 #222222
 client.urgent            #212739 #252522 #f0f0f0 #900000
 
 
 # Bar Configuration
 bar {
-    status_command i3status
+    status_command exec ~/.config/i3/bar.sh
     position top
     tray_output none
 
     colors {
         background $bg
         statusline $fg
-        focused_workspace $bg $bg #fa5ead
+        focused_workspace $bg $bg #fa5ead 
         active_workspace $bg $bg $fg
         inactive_workspace $bg $bg $fg
         urgent_workspace $bg $bg $fg
