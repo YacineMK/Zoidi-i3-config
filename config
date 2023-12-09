@@ -3,7 +3,7 @@ set $mod Mod4
 font pango:monospace 10
 
 # Autostart
-exec_always feh --bg-scale /home/soyed/Downloads/wall.webp
+exec_always feh --bg-scale /home/soyed/Downloads/wqll.png
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
@@ -45,12 +45,12 @@ bindsym $mod+Shift+space floating toggle
 set $bg #212739
 set $fg #f0f0f0
 
-set $ws1 "1:"
-set $ws2 "2:" 
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6:"
+set $ws1 " 1:"
+set $ws2 " 2:" 
+set $ws3 " 3:"
+set $ws4 " 4:"
+set $ws5 " 5:"
+set $ws6 " 6:"
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -92,13 +92,21 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+for_window [class="Firefox"] border none
 
 # Colors
+client.focused           #212739 #171421 #f0f0f0 #285577
+client.focused_inactive  #212739 #252522 #f0f0f0 #0b6e48
+client.unfocused         #212739 #252525 #f0f0f0 #222222
+client.urgent            #212739 #252522 #f0f0f0 #900000
+
+
 # Bar Configuration
 bar {
     status_command i3status
     position top
     tray_output none
+
     colors {
         background $bg
         statusline $fg
