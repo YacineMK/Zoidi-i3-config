@@ -18,7 +18,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 tiling_drag modifier titlebar
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id rofi
 
 # Focus and Movement
 bindsym $mod+j focus left
@@ -75,6 +75,11 @@ for_window [class="spotify"] move container to workspace $ws4
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym --release $mod+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+#rb
+default_border pixel 0
+default_border none
+
 
 # Resize Mode
 mode "resize" {
