@@ -80,8 +80,8 @@ bindsym --release $mod+e exec "i3-nagbar -t warning -m 'You pressed the exit sho
 
 #rb
 
-default_border none
 
+default_border none
 
 # Resize Mode
 mode "resize" {
@@ -117,9 +117,23 @@ bar {
     colors {
         background $bg
         statusline $fg
-        focused_workspace $bg $bg #fa5ead 
+        focused_workspace $bg $bg #913cde 
         active_workspace $bg $bg $fg
         inactive_workspace $bg $bg $fg
         urgent_workspace $bg $bg $fg
     }
 }
+
+
+# Save full-screen screenshot with a specific filename and path
+bindsym Print exec bash -c 'gnome-screenshot -f "/home/soyed/Pictures/Screenshots/scht_$(date +%Y-%m-%d_%H-%M-%S).png"'
+
+# Save selected area screenshot with a specific filename and path
+bindsym $mod+Shift+s exec bash -c 'import "/home/soyed/Pictures/Screenshots/scht_$(date +%Y-%m-%d_%H-%M-%S).png"'
+
+
+# Set outer gaps
+gaps outer 10
+
+# Set inner gaps (between windows)
+gaps inner 10
