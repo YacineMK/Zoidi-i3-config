@@ -1,11 +1,13 @@
 # General Configuration
 set $mod Mod4
-font pango:monospace 11
+font pango:monospace 12
 
 # Autostart
-exec_always feh --bg-scale /home/soyed/Pictures/wall.jpg
+exec_always feh --bg-scale /home/soyed/Pictures/wp.jpeg
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
+exec --no-startup-id picom --config ~/.config/picom.conf
+
 
 # Volume Controls
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -16,7 +18,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Window Movement and Management
 tiling_drag modifier titlebar
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id flatpak run com.raggesilver.BlackBox
 bindsym $mod+Shift+q kill
 
 
@@ -47,12 +49,12 @@ bindsym $mod+Shift+space floating toggle
 set $bg #1e1e2e
 set $fg #cdd6f4
 
-set $ws1 " 1:"
-set $ws2 " 2:" 
-set $ws3 " 3:"
-set $ws4 " 4:"
-set $ws5 " 5:"
-set $ws6 " 6:"
+set $ws1 "1: "
+set $ws2 "2:" 
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6: "
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -110,7 +112,7 @@ client.urgent            #212739 #252522 #f0f0f0 #900000
 
 # Bar Configuration
 bar {
-    status_command exec ~/.config/i3/bar.sh
+    status_command i3blocks
     position top
     tray_output none
 
@@ -124,6 +126,11 @@ bar {
     }
 }
 
+# Add gaps between windows
+gaps inner 10
+
+
+
 
 # Save full-screen screenshot with a specific filename and path
 bindsym Print exec bash -c 'gnome-screenshot -f "/home/soyed/Pictures/Screenshots/scht_$(date +%Y-%m-%d_%H-%M-%S).png"'
@@ -133,7 +140,6 @@ bindsym $mod+Shift+s exec bash -c 'import "/home/soyed/Pictures/Screenshots/scht
 
 
 # Set outer gaps
-gaps outer 10
-
+gaps outer 7
 # Set inner gaps (between windows)
-gaps inner 10
+gaps inner 8
