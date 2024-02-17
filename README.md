@@ -9,20 +9,16 @@ This repository contains the configuration file for the i3 window manager (`~/.c
 ## General Configuration
 
 - **$mod Key**: Mod4 (Windows key)
-- **Font**: Monospace 12
 - **Autostart Programs**:
   - Set wallpaper with `feh`
   - Lock screen with `xss-lock` and `i3lock`
   - Network Manager applet (`nm-applet`)
   - Compositor (`picom`)
+  - app display(`rofi`)
   
 ## Keybindings
 
-- **Volume Controls**: 
-  - Increase Volume: XF86AudioRaiseVolume
-  - Decrease Volume: XF86AudioLowerVolume
-  - Mute: XF86AudioMute
-  - Mic Mute: XF86AudioMicMute
+
 - **Window Movement and Management**:
   - Open terminal: $mod+Return
   - Close window: $mod+Shift+q
