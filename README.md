@@ -2,6 +2,8 @@
 
 ![i3wm](./pics/img1.png)
 
+![i3wm](./pics/img2.png)
+
 This repository contains the configuration file for the i3 window manager (`~/.config/i3/config`) along with additional setup instructions.
 
 ## General Configuration
