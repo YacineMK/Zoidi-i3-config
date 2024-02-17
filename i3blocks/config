@@ -1,0 +1,37 @@
+[wifi_name]
+label= 
+command=nmcli -t -f active,ssid dev wifi | grep '^yes:' | cut -d: -f2
+interval=30
+
+[separator]
+label= " "
+interval=once
+
+[time]
+label=
+command=date +"%H:%M"
+interval=1
+
+[separator]
+label= " "
+interval=once
+
+[battery]
+label= 
+command=bash -c "acpi -b | grep -o '[0-9]\+%' | tr -d '%' | awk '{ total += \$1; count++ } END { print total/count }'"
+interval=30
+
+
+
+[separator]
+label= " "
+interval=once
+
+[date]
+label=
+command=date +"%a, %d %b %Y"
+interval=60
+
+[separator]
+label= " "
+interval=once

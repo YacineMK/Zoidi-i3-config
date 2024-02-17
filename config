@@ -21,7 +21,6 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec --no-startup-id flatpak run com.raggesilver.BlackBox
 bindsym $mod+Shift+q kill
 
-
 # Use Rofi as the dmenu replacement
 bindsym $mod+d exec rofi -show drun 
 #Focus and Movement
@@ -35,6 +34,17 @@ bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
+
+
+# Define Rofi commands for WiFi and power management
+set $rofi_wifi_cmd "nmcli --fields SSID,RATE device wifi list | awk '{print $1  ,  $2}' | rofi -dmenu -p 'Select network:' -width 5 -lines 5 | awk '{print $1}      ' | xargs -I{} nmcli device wifi connect {}"
+set $rofi_power_cmd "echo -e 'Shutdown\nReboot\nSuspend' | rofi -dmenu -p 'Power:' | xargs -I{} systemctl {}"
+
+# Keybindings to trigger Rofi with the defined commands
+bindsym $mod+Shift+w exec --no-startup-id $rofi_wifi_cmd
+bindsym $mod+Shift+p exec --no-startup-id $rofi_power_cmd
+
+
 
 # Splitting and Layout
 bindsym $mod+h split h
@@ -110,7 +120,7 @@ client.unfocused         #182b32 #252525 #f0f0f0 #222222
 client.urgent            #212739 #252522 #f0f0f0 #900000
 
 
-# Bar Configuration
+
 bar {
     status_command i3blocks
     position top
@@ -124,13 +134,16 @@ bar {
         inactive_workspace $bg $bg $fg
         urgent_workspace $bg $bg $fg
     }
+
+    # Add spacing between blocks
+    separator_symbol "  "
 }
 
 # Add gaps between windows
 gaps inner 10
 
 
-
+bindsym $mod+Shift+x exec i3lock -i /home/soyed/Pictures/lock.png
 
 # Save full-screen screenshot with a specific filename and path
 bindsym Print exec bash -c 'gnome-screenshot -f "/home/soyed/Pictures/Screenshots/scht_$(date +%Y-%m-%d_%H-%M-%S).png"'
