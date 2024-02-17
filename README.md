@@ -1,7 +1,6 @@
 # Zoidi-i3-config
 
-
-# i3 Window Manager Configuration
+![i3wm](./pics/img1.png)
 
 This repository contains the configuration file for the i3 window manager (`~/.config/i3/config`) along with additional setup instructions.
 
